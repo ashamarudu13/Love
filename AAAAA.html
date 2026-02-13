@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Valentine</title>
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            font-family: Arial, sans-serif;
+            background:black;
+            color:white;
+            text-align:center;
+            overflow:hidden;
+        }
+
+        h1{
+            margin-top:120px;
+            font-size:40px;
+        }
+
+        button{
+            padding:15px 30px;
+            font-size:18px;
+            border:none;
+            border-radius:30px;
+            cursor:pointer;
+            margin:15px;
+            background:red;
+            color:white;
+        }
+
+        button:hover{
+            transform:scale(1.1);
+        }
+
+        .page{
+            display:none;
+        }
+
+        .active{
+            display:block;
+        }
+
+        .heart{
+            position:absolute;
+            color:red;
+            animation:float 6s linear infinite;
+        }
+
+        @keyframes float{
+            0%{transform:translateY(100vh);opacity:1;}
+            100%{transform:translateY(-10vh);opacity:0;}
+        }
+
+        .para{
+            width:70%;
+            margin:100px auto;
+            font-size:22px;
+            line-height:1.6;
+        }
+    </style>
+</head>
+<body>
+
+<div id="page1" class="page active">
+    <h1>Will You Be My Valentine? ❤️</h1>
+    <button onclick="yesPage()">YES ❤️</button>
+    <button onclick="noPage()">NO 💔</button>
+</div>
+
+<div id="page2" class="page">
+    <div class="para">
+        Ithu vara ennoda irunthathukkuuuu naaa romba happyy ahh irukke da, en mela evlo kovam irunthaaluu ennooda irukkathukkuumm romba happyy luv u soo muchh 😘😘🫂❤️💋  
+        <br><br>
+        Enakku nee irukkaradhe podhum da… adhuve en biggest happiness. Eppavum ippadiye en kooda irukkanum. Naa unna romba romba love panren ❤️
+    </div>
+</div>
+
+<div id="page3" class="page">
+    <h1>
+        You have no rights to tell NO 😤❤️<br><br>
+        I’m your Valentine 😌💋<br>
+        Ithu fix uhhh brooo… you can’t tell no 😂❤️
+    </h1>
+</div>
+
+<script>
+    function yesPage(){
+        document.getElementById("page1").classList.remove("active");
+        document.getElementById("page2").classList.add("active");
+    }
+
+    function noPage(){
+        document.getElementById("page1").classList.remove("active");
+        document.getElementById("page3").classList.add("active");
+    }
+
+    function createHeart(){
+        var heart=document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML="❤️";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.fontSize=Math.random()*30+20+"px";
+        heart.style.animationDuration=Math.random()*3+3+"s";
+        document.body.appendChild(heart);
+        setTimeout(function(){heart.remove();},6000);
+    }
+
+    setInterval(createHeart,200);
+</script>
+
+</body>
+</html>
